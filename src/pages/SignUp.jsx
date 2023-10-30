@@ -2,8 +2,9 @@ import react, { useState } from "react";
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
-	GoogleAuthProvider,
+	// GoogleAuthProvider,
 	signInWithPopup,
+	signInWithRedirect,
 } from "firebase/auth";
 import { app } from "../firebase";
 
@@ -13,9 +14,18 @@ const SignUp = () => {
 	const provider = new GoogleAuthProvider();
 	const auth = getAuth(app);
 	const signInwithGoogle = () => {
-		signInWithPopup(auth, provider)
+		// signInWithPopup(auth, provider)
+		// 	.then((result) => {
+		// 		console.log("Signed In With Google", result);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log("ERROR", err);
+		// 	});
+
+		// sign in with redirect
+		signInWithRedirect(auth, provider)
 			.then((result) => {
-				console.log("Signed In With Google", result);
+				console.log("sign in with redirect", result);
 			})
 			.catch((err) => {
 				console.log("ERROR", err);

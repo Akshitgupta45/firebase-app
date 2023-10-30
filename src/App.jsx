@@ -10,7 +10,7 @@ function App() {
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				console.log(user);
+				// console.log(user);
 				setUser(user);
 			} else {
 				console.log("NO user Signed In");
@@ -30,6 +30,7 @@ function App() {
 	return (
 		<>
 			<h1>Hello {user.email}</h1>
+
 			<button
 				style={{ border: "1px solid black" }}
 				onClick={() => signOut(auth)}
